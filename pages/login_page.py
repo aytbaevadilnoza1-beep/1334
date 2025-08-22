@@ -6,13 +6,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
-        self.phone_number = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__content > form > label > input")
-        self.btn_next = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__content > form > button")
-        self.password = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__content > form > div > label > input")
-        self.btn_submit = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__content > form > button")
-        self.btn_sessions = (By.CSS_SELECTOR, "#dialog > div > div > div > div.material-dialog__window-body.material-dialog__window-body_modify > div > div:nth-child(2) > div.drop-down-component__btn > div > div.list-tile__trailing > button")
-        self.btn_finish = (By.CSS_SELECTOR, "#dialog > div > div > div > div.material-dialog__window-body.material-dialog__window-body_modify > div > div:nth-child(2) > div.drop-down-component__content > div.sessions__item-content > button")
-
+        self.phone_number = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__container > div > div.log-in__newContent-right > div > div.log-in__newContent-right-block-wrap > form > div.log-in__newContent-right-block-center > div > label")
+        self.btn_next = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__container > div > div.log-in__newContent-right > div > div.log-in__newContent-right-block-wrap > form > div.log-in__newContent-right-block-bot > button")
+        self.password = (By.CSS_SELECTOR, "#app > div > div > div > div.log-in__container > div > div.log-in__newContent-right > div > div.log-in__newContent-right-block-wrap > form > div.log-in__newContent-right-block-center.log-in__newContent-right-block-center-checkpass > div.log-in__newContent-right-block-center-inp > label")
+        self.btn_submit = (By.CSS_SELECTOR,  "#app > div > div > div > div.log-in__container > div > div.log-in__newContent-right > div > div.log-in__newContent-right-block-wrap > form > div.log-in__newContent-right-block-bot > button")
+        self.btn_sessions = (By.CSS_SELECTOR, "#dialog > div > div > div > div.material-dialog__window-body.material-dialog__window-body_modify > div > div:nth-child(2) > div")
+        self.btn_finish = (By.CSS_SELECTOR,  "#dialog > div > div > div > div.material-dialog__window-body.material-dialog__window-body_modify > div > div:nth-child(2) > div.drop-down-component__content > div.sessions__item-content > button")
     def enter_phone_number(self, phone_number):
         wait = WebDriverWait(self.driver, 10)
         wait.until(EC.presence_of_element_located((self.phone_number))).send_keys(phone_number)
